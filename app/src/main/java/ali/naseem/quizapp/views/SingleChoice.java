@@ -66,6 +66,7 @@ public class SingleChoice extends LinearLayout {
     }
 
     public RadioModel getChoiceModel() {
+        choiceModel.setSelected(-1);
         for (int i = 0; i < radioGroup.getChildCount(); ++i) {
             RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
             if (radioButton.isChecked()) {
