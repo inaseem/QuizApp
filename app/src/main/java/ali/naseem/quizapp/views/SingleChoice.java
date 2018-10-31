@@ -55,16 +55,6 @@ public class SingleChoice extends LinearLayout {
         radioGroup = v.findViewById(R.id.radioGroup);
     }
 
-    public SingleChoice(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.item_radio, this, true);
-        this.v = v;
-        title = v.findViewById(R.id.title);
-        radioGroup = v.findViewById(R.id.radioGroup);
-    }
-
     public RadioModel getChoiceModel() {
         choiceModel.setSelected(-1);
         for (int i = 0; i < radioGroup.getChildCount(); ++i) {

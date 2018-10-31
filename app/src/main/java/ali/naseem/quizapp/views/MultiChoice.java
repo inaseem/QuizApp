@@ -54,16 +54,6 @@ public class MultiChoice extends LinearLayout {
         checkboxes = v.findViewById(R.id.checkBoxes);
     }
 
-    public MultiChoice(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.item_checkbox, this, true);
-        this.v = v;
-        title = v.findViewById(R.id.title);
-        checkboxes = v.findViewById(R.id.checkBoxes);
-    }
-
     public CheckboxModel getChoiceModel() {
         choiceModel.getSelected().clear();
         for (int i = 0; i < checkboxes.getChildCount(); ++i) {

@@ -20,16 +20,8 @@ public class RadioModel extends ItemModel {
         choices.add(choice);
     }
 
-    public void removeChoice(Choice choice) {
-
-    }
-
     public ArrayList<Choice> getChoices() {
         return choices;
-    }
-
-    public void setChoices(ArrayList<Choice> choices) {
-        this.choices = choices;
     }
 
     public void setSelected(int selected) {

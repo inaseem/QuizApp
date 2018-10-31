@@ -13,8 +13,10 @@ import java.util.Collections;
 import ali.naseem.quizapp.models.CheckboxModel;
 import ali.naseem.quizapp.models.ItemModel;
 import ali.naseem.quizapp.models.RadioModel;
+import ali.naseem.quizapp.models.TextModel;
 import ali.naseem.quizapp.models.submodels.Choice;
 import ali.naseem.quizapp.views.MultiChoice;
+import ali.naseem.quizapp.views.SimpleText;
 import ali.naseem.quizapp.views.SingleChoice;
 
 public class QuizActivity extends AppCompatActivity {
@@ -63,11 +65,13 @@ public class QuizActivity extends AppCompatActivity {
         checkboxModel.addCorrect(0);
         checkboxModel.addCorrect(1);
         checkboxModel.addCorrect(2);
+        TextModel textModel = new TextModel("How much budget was requested for Mars Program Plans in 2015?");
         models.add(radioModel);
         models.add(radioModel1);
         models.add(radioModel2);
         models.add(radioModel3);
         models.add(checkboxModel);
+        models.add(textModel);
         Helper.setPositions(models);
         Helper.addToForm(models, linearLayout);
         score.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +116,15 @@ public class QuizActivity extends AppCompatActivity {
                     } else {
                         sb.append("Question " + (i + 1) + ": " + "0 Points").append("\n");
                     }
+                    break;
+                case Constants.TYPE_TEXT:
+                    TextModel textModel = (TextModel) itemModel;
+                    if (textModel.getValue().trim().length() > 0) {
+                        score += 5;
+                        sb.append("Question " + (i + 1) + ": " + "5 Points").append("\n");
+                    } else {
+                        sb.append("Question " + (i + 1) + ": " + "0 Points").append("\n");
+                    }
             }
             i++;
         }
@@ -128,6 +141,10 @@ public class QuizActivity extends AppCompatActivity {
             if (view instanceof SingleChoice) {
                 SingleChoice singleChoice = (SingleChoice) view;
                 singleChoice.reset();
+            }
+            if (view instanceof SimpleText) {
+                SimpleText simpleText = (SimpleText) view;
+                simpleText.reset();
             }
         }
     }

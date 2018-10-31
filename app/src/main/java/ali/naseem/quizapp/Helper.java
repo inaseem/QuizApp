@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import ali.naseem.quizapp.models.CheckboxModel;
 import ali.naseem.quizapp.models.ItemModel;
 import ali.naseem.quizapp.models.RadioModel;
+import ali.naseem.quizapp.models.TextModel;
 import ali.naseem.quizapp.views.MultiChoice;
+import ali.naseem.quizapp.views.SimpleText;
 import ali.naseem.quizapp.views.SingleChoice;
 
 public class Helper {
@@ -23,6 +25,10 @@ public class Helper {
             if (view instanceof SingleChoice) {
                 SingleChoice singleChoice = (SingleChoice) view;
                 models.add(singleChoice.getChoiceModel());
+            }
+            if (view instanceof SimpleText) {
+                SimpleText simpleText = (SimpleText) view;
+                models.add(simpleText.getTextModel());
             }
         }
         return models;
@@ -40,6 +46,11 @@ public class Helper {
                     MultiChoice multiChoice = new MultiChoice(linearLayout.getContext());
                     multiChoice.setChoiceModel((CheckboxModel) itemModel);
                     linearLayout.addView(multiChoice);
+                    break;
+                case Constants.TYPE_TEXT:
+                    SimpleText simpleText = new SimpleText(linearLayout.getContext());
+                    simpleText.setTextModel((TextModel) itemModel);
+                    linearLayout.addView(simpleText);
                     break;
             }
         }
