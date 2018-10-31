@@ -119,6 +119,7 @@ public class QuizActivity extends AppCompatActivity {
                     break;
                 case Constants.TYPE_TEXT:
                     TextModel textModel = (TextModel) itemModel;
+                    System.out.println("TextModel = " + textModel.getValue());
                     if (textModel.getValue().trim().length() > 0) {
                         score += 5;
                         sb.append("Question " + (i + 1) + ": " + "5 Points").append("\n");
