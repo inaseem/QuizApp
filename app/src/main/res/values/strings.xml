@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">QuizApp</string>
     <string name="next">Next</string>
+    <string name="score">View Score</string>
     <string name="reset">Reset</string>
+    <dimen name="padding_items">16dp</dimen>
 </resources>

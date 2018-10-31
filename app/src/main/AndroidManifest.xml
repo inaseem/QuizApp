@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".QuizActivity"
             android:configChanges="screenLayout|orientation"
             android:resizeableActivity="true">
             <intent-filter>
